@@ -1,0 +1,118 @@
+.project
+{
+    margin-top: 20px;
+    /* border: 2px solid red;  */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color:white;
+
+}
+.projectinner
+{
+    padding: 10px;
+}
+.blurred-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+      backdrop-filter: blur(10px); /* The blur effect */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+@media (max-width: 590px) {
+  .modal{
+    width: 95%;
+      height: 50%;
+   }
+
+}
+
+
+.image{
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-right: 5px;
+    padding: 10px;
+    width:500px;
+    height: 800px;
+
+
+    
+}
+.carousel-item .img-fluid {
+  width:100%;
+}
+
+.centered-div {
+    
+    padding: 20px;
+  }
+  .vh-100 {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cormorant-garamond-light {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+.btn-custom{
+background-color:#4A5058;
+}
+.btn-custom:hover {
+      background-color: #444547;
+      transform: scale(1.1);
+    }
+.btn-custom:focus {
+      box-shadow: 0 0 0 0.25rem rgba(255, 87, 51, 0.5);
+ }
+
+.bodoni-moda-template {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+  body
+  {
+   /*background:#CADCFC;
+   #FBDB58 yellow #154260 blue
+   */
+   /*background: #154260;*/
+   width :100%;
+   height: 100%;
+   background: rgb(212,202,163);
+    /*background: linear-gradient(220deg, rgba(212,202,163,1) 33%, rgba(70,110,138,1) 81%);*/
+   background: rgb(212,202,163);
+   background: linear-gradient(238deg, rgba(212,202,163,1) 20%, rgba(70,110,138,1) 60%);
+
+
+  }
+  .custom{
+  /*background-color: white;*/
+  background-color:#FBDB58;
+  }
+  .custom1
+  {
+background-color:#00246B;
+  }
+  .overFlow_for_images
+  {
+overflow-y: auto;
+  }
+  .image-button
+  {
+  padding: 0;
+border: none;
+background: none;
+  }
+  

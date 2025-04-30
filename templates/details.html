@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dynamic Portfolio</title>
+    <link type="text/css" href="/static/new-style.css" >
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+   <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #000000;
+            color: #FFFFFF;
+            line-height: 1.6;
+        }
+        .navbar-dark .navbar-brand {
+            color: #FFD700;
+            font-weight: 700;
+            font-size: 1.75rem;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #FFFFFF;
+            padding: 0.75rem 1rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .navbar-dark .navbar-nav .nav-link:hover,
+        .navbar-dark .navbar-nav .nav-link.active {
+            color: #FFD700;
+            transform: translateY(-2px);
+        }
+        .hero {
+            background-color: #111111;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #FFFFFF;
+        }
+
+        .hero-subtitle {
+            font-size: 1.75rem;
+            color: #CCCCCC;
+            margin-bottom: 2rem;
+        }
+        .btn-primary {
+            background-color: #FFD700;
+            border-color: #FFD700;
+            color: #000000;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.3rem;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #e0b800;
+            border-color: #e0b800;
+            transform: translateY(-2px);
+        }
+        .section-title {
+            color: #FFFFFF;
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: #FFD700;
+        }
+        .card {
+            background-color: #222222;
+            border-radius: 0.75rem;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border: none;
+            color: #FFFFFF;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+        .btn-success {
+            background-color: #FFD700;
+            border-color: #FFD700;
+            color: #000000;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-success:hover {
+            background-color: #e0b800;
+            border-color: #e0b800;
+            transform: translateY(-2px);
+        }
+        .card-img-top {
+            border-top-left-radius: 0.75rem;
+            border-top-right-radius: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+        .card-img-top:hover {
+            transform: scale(1.05);
+        }
+        .card-title {
+            color: #FFFFFF;
+        }
+        .card-text {
+            color: #CCCCCC;
+        }
+        .card a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease, border-bottom-color 0.3s ease, transform 0.2s ease;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 2px;
+        }
+        .card a:hover {
+            color: #FFFFFF;
+            border-bottom-color: #FFFFFF;
+            transform: translateX(5px);
+        }
+        .bg-gradient-to-r {
+            background: #333333 !important;
+        }
+        strong
+        {
+        color: #FFD700 !important;
+        }
+
+        .bg-gradient-to-r .text-white, .bg-gradient-to-r .text-dark {
+            color: #FFFFFF !important;
+        }
+        #projects .bg-gradient-to-br {
+            background-color: #111111 !important;
+        }
+        #projects .card-title, #projects .card-text {
+            color: #FFFFFF !important;
+        }
+        #projects .text-pink-600, #projects .text-green-600, #projects .text-blue-600 {
+            color: #FFD700 !important;
+            border-bottom-color: #FFD700 !important;
+        }
+        #projects .text-pink-600:hover, #projects .text-green-600:hover, #projects .text-blue-600:hover {
+            color: #FFFFFF !important;
+            border-bottom-color: #FFFFFF !important;
+        }
+        #testimonials {
+            background-color: #000000 !important;
+        }
+        #testimonials .card {
+            background-color: #222222 !important;
+            border-left: 5px solid #FFD700;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        #testimonials .card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px);
+        }
+        #testimonials .text-gray-700, #testimonials .text-gray-800 {
+            color: #CCCCCC !important;
+        }
+        #contact .bg-gradient-to-br {
+            background-color: #111111 !important;
+        }
+        #contact .btn-success {
+            background-color: #FFD700 !important;
+            border-color: #FFD700 !important;
+            color: #000000 !important;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        #contact .btn-success:hover {
+            background-color: #e0b800 !important;
+            border-color: #e0b800 !important;
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #000000 !important;
+            border-top: 3px solid #FFD700;
+        }
+        footer .text-gray-300, footer .text-white {
+            color: #CCCCCC !important;
+        }
+
+    </style>
+</head>
+<body >
+
+    <div class="container">
+        <nav class="navbar  navbar-expand-lg bg-transparent">
+                <div class="container-fluid">
+                    <a class="navbar-brand text-xl font-semibold text-shadow-custom" style="color: #FFD700 !important; font-weight: 700; font-size: 1.75rem;" href="{{url_for('mainPage')}}">My Portfolio</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" style="color: #FFD700 !important; transition: color 0.3s ease;" href="{{url_for('fullStack')}}">Fullstack</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" style="color: #FFD700 !important; transition: color 0.3s ease;" href="{{url_for('frontEnd')}}">Frontend</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" style="color: #FFD700 !important; transition: color 0.3s ease;" href="#contact">Apps</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+    </div>
+    <section id="projects" class="py-5" style="background-color: #111111 !important;">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-4 font-semibold mb-4" style="color: #FFFFFF !important;">My Projects</h2>
+            <p class="mt-2 fs-lg" style="color: #CCCCCC !important;">A selection of my best work</p>
+        </div>
+        <div class="row g-4">
+            {% for item in items%}
+            <div class="col-md-6 col-lg-4">
+                <div class="card overflow-hidden">
+                    <img src="https://placehold.co/600x400/333/EEE" alt="Project 1" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="card-title h4 font-semibold mb-2" style="color: #FFFFFF !important;">{{item.name}}</h3>
+                        <p class="card-text mb-4" style="color: #CCCCCC !important;">{{item.description}}</p>
+                        <a href="#"
+                           class="font-semibold transition duration-300 ease-in-out">
+                            View Project
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            {%endfor%}
+    </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+<footer class="bg-gray-800 text-white py-4">
+
+<div class="container">
+
+<div class="text-center text-gray-300 text-md">
+
+&copy; 2024 [Your Name]. All rights reserved.
+
+</div>
+
+</div>
+
+</footer>
+
+
+
+
+
+</body>
+
+</html>
