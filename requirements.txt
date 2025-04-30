@@ -17,7 +17,6 @@ pandas==2.2.0
 pillow==10.2.0
 psycopg2-binary==2.9.9
 pyarrow==15.0.2
-pyscopg2==66.0.2
 python-dateutil==2.8.2
 pytz==2024.1
 requests==2.31.0
