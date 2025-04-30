@@ -3,6 +3,10 @@ from database import *
 @app.route('/')
 def mainPage():
     return render_template('new-demo.html')
+@app.route('/education')
+def edu():
+    result_certi = db.session.execute(db.select(Certifcate)).scalars().all()
+    return render_template('education.html',items = result_certi)
 
 @app.route('/mobile')
 def mobilePage():

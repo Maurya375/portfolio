@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from sqlalchemy.orm import *
 from flask_sqlalchemy import *
 from flask import *
@@ -26,8 +28,21 @@ class Mobileapp(db.Model):
     name: Mapped[str]
     description: Mapped[str]
     link: Mapped[str]
+
+class Certifcate(db.Model):
+    id: Mapped[int] = MappedColumn(primary_key=True)
+    title: Mapped[str]
+    description: Mapped[str]
+    date: Mapped[datetime]
+
+
 # with app.app_context():
 #     db.create_all()
+# with app.app_context():
+#
+#     db.session.add(Certifcate(title='Developong cloud apps with Node and React  ',description="",date=datetime(year=2022,month=10,day=30)))
+#     db.session.commit()
+
 # with app.app_context():
 #     fullstack =[]
 #     fullstack.append(Fullstack(name='scheduling Site',description="ksdjBFKsbdfkjbdkFJBKSDJF,SBKDBFKSDJFBK",link='https://mail.google.com',image='scheduling-site'))
