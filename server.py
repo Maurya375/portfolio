@@ -26,5 +26,5 @@ def workExp():
     return render_template('work.html')
 
 if __name__ == "__main__":
-    app.secret_key = 'SECRET KEY'
-    # app.run(debug=True)
+    # app.secret_key = 'SECRET KEY'
+    app.run(debug=True)

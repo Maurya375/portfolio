@@ -131,7 +131,7 @@
             <div class="card-body">
                 <h3 class="card-title">{{item.title}}</h3>
                 <p class="card-text"><strong>Issue Date:</strong> {{item.date.date()}}</p>
-                <a href="[Link to your Certificate PDF or Image]" class="btn btn-primary certificate-link" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                <a href="{{item.link}}" class="btn btn-primary certificate-link" target="_blank" rel="noopener noreferrer">View Certificate</a>
             </div>
         </div>
         {%endfor%}
