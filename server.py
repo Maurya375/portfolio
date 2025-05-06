@@ -30,4 +30,5 @@ def frontEnd():
 
 if __name__ == "__main__":
     app.secret_key = 'SECRET KEY'
+
     # app.run(debug=True)
