@@ -11,8 +11,9 @@
    <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #000000;
-            color: #FFFFFF;
+           background-color: #111111; /* Black background */
+
+            color: #fff; /* White text for better contrast */
             line-height: 1.6;
         }
         .navbar-dark .navbar-brand {
@@ -244,7 +245,7 @@
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="display-4 font-semibold mb-4" style="color: #FFFFFF !important;">My Projects</h2>
-            <p class="mt-2 fs-lg" style="color: #CCCCCC !important;">A selection of my best work</p>
+
         </div>
         <div class="row g-4">
             {% for item in items%}
@@ -254,8 +255,8 @@
                     <div class="card-body">
                         <h3 class="card-title h4 font-semibold mb-2" style="color: #FFFFFF !important;">{{item.name}}</h3>
                         <p class="card-text mb-4" style="color: #CCCCCC !important;">{{item.description}}</p>
-                        <a href="#"
-                           class="font-semibold transition duration-300 ease-in-out">
+                        <a href="{{item.link}}"
+                           class="font-semibold transition duration-300 ease-in-out" target="_blank" rel="noopener noreferrer">
                             View Project
                         </a>
                     </div>
@@ -281,11 +282,9 @@
 
 <div class="container">
 
-<div class="text-center text-gray-300 text-md">
 
-&copy; 2024 [Your Name]. All rights reserved.
 
-</div>
+
 
 </div>
 
