@@ -27,7 +27,7 @@
             box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
             border: none;
-            color: #FFFFFF;
+            color: #fff;
             margin: 20px;
         }
          .card:hover {
@@ -51,9 +51,18 @@
             display: block;
         }
         .list-group-item{
-          background-color: #1a1a1a;
-          border: 1px solid #333;
-          color: #ddd;
+          background-color: #222222;
+          border: none;
+          color: #ededed;
+<!--          color: #ddd;-->
+        }
+        .list-group-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+        strong
+        {
+        color: #FFD700 !important;
         }
 
     </style>
@@ -101,22 +110,28 @@
     <div class="container py-5">
         <h2 class="mb-4">Work Experience</h2>
     {%for item in items%}
-        <div class="card">
+        <div class="card" >
             <div class="card-body">
                 <h3 class="card-title">{{item.job_title}}</h3>
                 <h4 class="card-subtitle">{{item.company_name}}</h4>
                 <span class="work-date">{{item.start_date.date()}} -{{item.status}}</span>
-                <p class="card-text"><strong>Key Responsibilities:</strong></p>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">[Responsibility 1]</li>
-                    <li class="list-group-item">[Responsibility 2]</li>
-                    <li class="list-group-item">[Responsibility 3]</li>
-                    </ul>
+                <p class="card-text" ><strong>Key Responsibilities:</strong></p>
+                <ol class="list-group list-group-flush" style="border-radius: 5px;">
+                    <li class="list-group-item"> <p>Serve as the first point of contact for technical support, assisting internal and external clients.</p></li>
+                    <li class="list-group-item"><p>Provide remote support for clients in the Saskatoon office, ensuring timely resolution of issues.</p></li>
+                    <li class="list-group-item"><p>Offer Webmaster support for both internal and external stakeholders.</p></li>
+                    <li class="list-group-item"><p>Diagnose, troubleshoot, and resolve technical issues related to hardware, PC installations, configurations, peripherals, printers, multi-function devices, custom and packaged software, and network connectivity.</p></li>
+                    <li class="list-group-item"><p>Configure, install, and troubleshoot network and standalone printers, including color and high-volume printers.</p></li>
+                    <li class="list-group-item"><p>Manage, update, configure, and deploy the corporate Windows Operating System standard image for desktop environments.</p></li>
+                    <li class="list-group-item"><p>Conduct online research to identify solutions for complex technical issues.</p></li>
+                    <li class="list-group-item"><p>Effectively prioritize, multitask, and meet deadlines in a fast-paced environment while adapting to shifting demands.</p></li>
+
+                    </ol>
                 <p class="card-text"><strong>Achievements (Optional):</strong></p>
                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">[Achievement 1]</li>
-                    <li class="list-group-item">[Achievement 2]</li>
-                    <li class="list-group-item">[Achievement 3]</li>
+                    <li class="list-group-item"><p>IT lead in the Annual comp institute held by the Company.</p> </li>
+                    <li class="list-group-item"><p>IT lead in the moving Saskatoon office.</p></li>
+                    <li class="list-group-item"><p>Deployement lead in various application deployment.</p></li>
                 </ul>
                 </div>
         </div>
