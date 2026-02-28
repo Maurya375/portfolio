@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFC Cross-Platform Detector</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 20px; background: #f4f4f9; }
+        .card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); max-width: 400px; margin: auto; }
+        #status { font-weight: bold; margin: 20px 0; padding: 10px; border-radius: 5px; }
+        .ready { background: #e3f2fd; color: #1976d2; }
+        .detected { background: #e8f5e9; color: #2e7d32; }
+        .error { background: #ffebee; color: #c62828; }
+        button { background: #6200ee; color: white; border: none; padding: 15px 30px; border-radius: 25px; font-size: 16px; cursor: pointer; }
+        .info { font-size: 12px; color: #666; margin-top: 20px; text-align: left; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>NFC Link Detector</h2>
+    <p>Use this Android phone to detect a connection from another device.</p>
+    
+    <button id="startBtn">Enable Detector</button>
+    
+    <div id="status" class="ready">Status: Waiting to start...</div>
+    <div id="details"></div>
+</div>
+
+<div class="card info">
+    <strong>How to connect:</strong>
+    <ul>
+        <li><strong>Android to Android:</strong> Ensure the other phone has "NFC" on and is sharing a link/contact.</li>
+        <li><strong>iPhone to Android:</strong> The iPhone must be in "NFC Sharing" mode (e.g., sharing a NameDrop contact or running an NFC-enabled Shortcut).</li>
+    </ul>
+</div>
+
+<script>
+    const startBtn = document.getElementById('startBtn');
+    const statusDiv = document.getElementById('status');
+    const detailsDiv = document.getElementById('details');
+
+    startBtn.addEventListener('click', async () => {
+        if (!('NDEFReader' in window)) {
+            statusDiv.innerText = "NFC not supported in this browser.";
+            statusDiv.className = "error";
+            return;
+        }
+
+        try {
+            const ndef = new NDEFReader();
+            await ndef.scan();
+            
+            statusDiv.innerText = "Scanning... Tap devices together.";
+            statusDiv.className = "ready";
+
+            ndef.addEventListener("reading", ({ message, serialNumber }) => {
+                statusDiv.innerText = "DEVICE DETECTED!";
+                statusDiv.className = "detected";
+                
+                let content = `<strong>Serial:</strong> ${serialNumber}<br>`;
+                
+                for (const record of message.records) {
+                    const decoder = new TextDecoder();
+                    content += `<strong>Type:</strong> ${record.recordType}<br>`;
+                    content += `<strong>Data:</strong> ${decoder.decode(record.data)}<br>`;
+                }
+                
+                detailsDiv.innerHTML = content;
+            });
+
+            ndef.addEventListener("readingerror", () => {
+                statusDiv.innerText = "Read Error: Try repositioning the phones.";
+                statusDiv.className = "error";
+            });
+
+        } catch (error) {
+            statusDiv.innerText = "Error: " + error;
+            statusDiv.className = "error";
+        }
+    });
+</script>
+
+</body>
+</html>
