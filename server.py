@@ -2,7 +2,7 @@ from database import *
 
 @app.route('/')
 def mainPage():
-    return render_template('demo.html')
+    return render_template('new-demo.html')
 @app.route('/education')
 def edu():
     result_certi = db.session.execute(db.select(Certifcate)).scalars().all()
